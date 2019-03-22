@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="content-type" content="text/html;charset=utf-8">
+</head>
+<body>
+
+<p>Input your grade and click the button:</p>
+
+<input id="grade" value="60" />
+
+<button onclick="myFunction()">show it</button>
+
+<p id="demo"></p>
+
+<canvas id="myCanvas" width="300" height="150" style="border:1px 
+	solid #d3d3d3;"></canvas>
+
+<script language="javascript">
+	var c = document.getElementById("myCanvas");
+	var ctx = c.getContext("2d");
+	ctx.fillStyle = "#FF0000";
+
+	function myFunction() {
+  	var grade, pass;
+  	grade = document.getElementById("grade").value;
+  	pass = (grade < 60) ? "You fail!":"Great job!!";
+  	document.getElementById("demo").innerHTML = pass;
+
+	if(grade<60){
+		for(i=0;i>=grade*1.5;i++){
+			ctx.fillRect(150, 60, 50, i);
+		}
+		setInterval(function(){
+			ctx.fillRect(150, 60, 50, i); 
+			i++;
+		},30);
+	}
+	if(grade>=60){
+		for(i=0;i>=grade*1.5;i++){
+			ctx.fillRect(50, 60, 50, i);
+		}
+		setInterval(function(){
+			ctx.fillRect(50, 60, 50, i); 
+			i--;
+		},30);
+	}
+}
+
+</script>
+
+</body>
+</html>
